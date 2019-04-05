@@ -2,10 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <style>
 @import
-	url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
-	;
-
-
+	url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 .banner-sec {
 	background:
 		url("https://d3nuqriibqh3vw.cloudfront.net/images/tired-furniture-03.jpg")
@@ -16,7 +13,7 @@
 	padding: 0;
 }
 
-.container {
+.myreg {
 	background: #fff;
 	border-radius: 10px;
 }
@@ -108,7 +105,7 @@
 </style>
 
 <section class="register-block">
-	<div class="container">
+	<div class="container myreg">
 	                 
 		<div class="row">
 		

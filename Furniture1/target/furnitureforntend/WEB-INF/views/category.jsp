@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 .dark-row {
 	background: #AEC5E8;
@@ -78,19 +79,19 @@ body {
 								<strong>Warning!</strong>Please contact the administrator
 							</div>
 						</c:if>
-						
+
 						<c:if test="${edit}">
-							<c:set var="url" value="updatecategory"></c:set>
+							<c:set var="url" value="${cr}/admin/updatecategory"></c:set>
 						</c:if>
 						<c:if test="${!edit}">
-							<c:set var="url" value="createcategory"></c:set>
+							<c:set var="url" value="${cr}/admin/createCategory"></c:set>
 						</c:if>
 						<h1 class="h3 mb-3 font-weight-normal">Category Form</h1>
 					</div>
 					<div class="card-body">
 						<form:form name="my-form" modelAttribute="mycategory"
 							method="Post" action="${url}">
-						
+
 							<div class="form-group row">
 								<label for="full_name"
 									class="col-md-4 col-form-label text-md-right">Category
@@ -100,7 +101,7 @@ body {
 										name="full-name" path="category_id"></form:input>
 								</div>
 							</div>
-								<div class="form-group row">
+							<div class="form-group row">
 								<label for="full_name"
 									class="col-md-4 col-form-label text-md-right">Category
 									Name</label>
@@ -151,11 +152,11 @@ body {
 
 
 													<td class="text-center"><a class='btn btn-info btn-xs'
-														href="editcategory?c_id=${c.category_id}"> <span
-															class="glyphicon glyphicon-edit"></span> Edit
-													</a> <a href="deletecategory?c_id=${c.category_id}"
+														href="${cr}/admin/editcategory?c_id=${c.category_id}">
+															<span class="class="fa fa-edit"></span>
+													</a> <a href="${cr}/admin/deletecategory?c_id=${c.category_id}"
 														class="btn btn-danger btn-xs"> <span
-															class="glyphicon glyphicon-remove"></span> Delete
+															class="class="fa fa-trash-o"></span> 
 													</a></td>
 												</tr>
 											</c:forEach>
@@ -175,4 +176,4 @@ body {
 			</div>
 		</div>
 	</div>
-		</div>
+</div>

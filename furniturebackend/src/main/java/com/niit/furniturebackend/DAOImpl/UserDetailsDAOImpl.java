@@ -1,8 +1,8 @@
 package com.niit.furniturebackend.DAOImpl;
 
-import java.util.List;
 
-import javax.transaction.Transactional;
+
+import org.springframework.transaction.annotation.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import com.niit.furniturebackend.model.UserCred;
 import com.niit.furniturebackend.model.UserDetails;
 
 
-@Repository
+@Repository("UserDetailsDAO")
 @Transactional
 public  class UserDetailsDAOImpl implements UserDetailsDAO
 {
@@ -28,7 +28,7 @@ public  class UserDetailsDAOImpl implements UserDetailsDAO
 			usercred.setEmailid(userdetails.getEmailid());
 			usercred.setUser_Password(userdetails.getPassword());
 			usercred.setStatus("true");
-			usercred.setRole("Role_user");
+			usercred.setRole("ROLE_USER");
 			sessionFactory.getCurrentSession().save(usercred);
 			sessionFactory.getCurrentSession().save(userdetails);
 			return true;
@@ -75,25 +75,12 @@ public  class UserDetailsDAOImpl implements UserDetailsDAO
 		}
 	}
 
-	@Override
-	public List<UserDetails> selectAllUser() 
-	{
-		try
-		{
-			return sessionFactory.getCurrentSession().createQuery("from UserDetails").list();
-		}
-		catch(Exception e)
-		{
-			System.out.println(e.getMessage());
-			return null;
-	}
-	}
-
-	public UserDetails selectOneUser(int user_id) 
+	
+	public UserDetails selectOneUser(String emailid) 
 	{
 		try 
 		{
-			return (UserDetails)sessionFactory.getCurrentSession().createQuery("from UserDetails where u_id="+user_id).uniqueResult();
+			return (UserDetails)sessionFactory.getCurrentSession().createQuery("from UserDetails where emailid='"+emailid+"'").uniqueResult();
 		}
 		catch(Exception e)
 		{

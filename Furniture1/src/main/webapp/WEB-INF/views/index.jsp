@@ -18,6 +18,9 @@
 		<c:if test="${slider}">
 			<jsp:include page="slider.jsp" />
 		</c:if>
+		<c:if test="${cartpage}">
+			<jsp:include page="cartpage.jsp" />
+		</c:if>
 
 		<c:if test="${aboutus}">
 			<jsp:include page="aboutus.jsp" />
@@ -50,11 +53,19 @@
 			<jsp:include page="supplier.jsp" />
 		</c:if>
 		
-		<c:if test="${viewoneproduct}}">
+		<c:if test="${viewoneproduct}">
 			<jsp:include page="viewoneproduct.jsp" />
 		</c:if>
-			
+			<c:if test="${addresspage}">
+			<jsp:include page="address.jsp" />
+		</c:if>
 
+			<c:if test="${orderpage}">
+			<jsp:include page="order.jsp" />
+		</c:if>
+	     <c:if test="${receiptpage}">
+			<jsp:include page="receipt.jsp" />
+		</c:if>
 	</div>
 	<jsp:include page="footer.jsp" />
 </body>

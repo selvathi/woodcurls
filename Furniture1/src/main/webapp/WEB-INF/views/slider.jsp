@@ -100,7 +100,7 @@
             <div style="background-color:#ffffff;background-image:linear-gradient(135deg,rgb(255, 255, 255) 16%,rgba(255, 255, 255, 0) 100%);">
                 <img data-u="image" src="http://www.me2concept.com/files/images/home-slider/2015_slider_01_2.jpg" />
             </div>
-           
+            
             <div>
                 <img data-u="image" src="http://destine.info/wp-content/uploads/2018/12/room-store-furniture-new-living-room-furniture-at-furniture-store-in-room-store-furniture-sales.jpg" />
             </div>
@@ -110,9 +110,7 @@
             <div>
                 <img data-u="image" src="http://smalta.me/wp-content/uploads/2018/10/commercial-interior-designers-orlando-1-2-3-4-5-6-7-8-home-hardware-stores-downtown-toronto.jpg" />
             </div>
-            <div>
-                <img data-u="image" src="http://www.bigbath.com.my/image/cache/data/web%201%20-01-980x320.jpg" />
-            </div>
+           
             <div>
                 <img data-u="image" src="http://www.me2concept.com/files/images/home-slider/2015_slider_03.jpg" />
             </div>

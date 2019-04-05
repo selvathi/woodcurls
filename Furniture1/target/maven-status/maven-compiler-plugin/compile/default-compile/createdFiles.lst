@@ -1,5 +1,8 @@
-com\niit\furnitureforntend\controller\ProductController.class
+com\niit\furnitureforntend\controller\AddressController.class
+com\niit\furnitureforntend\controller\CartController.class
 com\niit\furnitureforntend\controller\CategoryController.class
+com\niit\furnitureforntend\controller\OrderController.class
 com\niit\furnitureforntend\controller\SupplierController.class
 com\niit\furnitureforntend\controller\UserController.class
 com\niit\furnitureforntend\controller\HomeController.class
+com\niit\furnitureforntend\controller\ProductController.class

@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <style>
     body {
 	margin:0;
@@ -14,9 +16,9 @@ a{color:inherit;text-decoration:none}
 
 .login-wrap{
 	width: 100%;
-	margin-top:60px;
+	margin-top:50px;
 	margin-center:100px;
-	margin-left:450px;
+	margin-left:400px;
 	max-width:510px;
 	min-height:510px;
 	position:relative;
@@ -169,23 +171,32 @@ a{color:inherit;text-decoration:none}
 </style>
 
   <div class="login-wrap">
+  
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Forgot Password</label>
 		<div class="login-form">
 			<div class="sign-in-htm">
+			<c:if test="${error}">
+							<div class="alert alert-danger">
+								<strong>User Name or Password Incorrect</strong>
+							</div>
+						</c:if>
+			<form action="perform_login" method="Post">
 				<div class="group">
 					<label for="user" class="label">Username or Email</label>
-					<input id="user" type="text" class="input">
+					<input id="user_name" type="text" name="user_name" class="input">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
+					<input id="password" type="password" class="input" name="user_password" data-type="password">
 				</div>
 				<div class="group">
-					<input type="submit" class="button" value="Sign In">
+				<button type="submit" class="button">Sign In</button>
+					
 				</div>
 				<div class="hr"></div>
+				</form>
 			</div>
 			<div class="for-pwd-htm">
 				<div class="group">
@@ -193,7 +204,8 @@ a{color:inherit;text-decoration:none}
 					<input id="user" type="text" class="input">
 				</div>
 				<div class="group">
-					<input type="submit" class="button" value="Reset Password">
+				<button type="submit" class="button">Reset Password</button>
+					
 				</div>
 				<div class="hr"></div>
 			</div>

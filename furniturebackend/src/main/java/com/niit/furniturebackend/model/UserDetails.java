@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
-import javax.validation.constraints.Pattern;
+
 
 @Entity
 public class UserDetails 
@@ -19,8 +19,7 @@ public class UserDetails
      String username;
 
    @Column(nullable = false, unique = true)
-   @Pattern(regexp="([a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$")
-     String emailid;
+       String emailid;
 
     @Column(nullable= false, unique=true)
      String phoneno;

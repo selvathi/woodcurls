@@ -15,6 +15,7 @@ import com.niit.furniturebackend.model.Category;
 
 
 @Controller
+@RequestMapping("/admin")
 public class CategoryController {
 	@Autowired
 	CategoryDAO cat;

@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 a.navbar-brand {
 	float: left;
@@ -9,10 +12,11 @@ a.navbar-brand {
 	font-family: cursive;
 	font-weight: 700;
 	margin-top: -30px;
+	margin-left: 20px;
 }
 
 nav.main-navigation {
-	background-image: url("http://bgfons.com/upload/wood_texture3811.jpg"); 
+	background-image: url("http://bgfons.com/upload/wood_texture3811.jpg");
 	position: relative;
 }
 
@@ -55,41 +59,509 @@ keyframes FadeIn { 0% {
 100%
 {
 opacity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1;
 -webkit-transform
-:
- 
-translateY
-(0);
 
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+translateY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(0);
 -ms-transform
-:
- 
-translateY
-(0);
 
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+translateY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(0);
 transform
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 translateY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (0);
-
-                
 pointer-events
-:
- 
-auto
-;
 
-                
-transition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+transition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 cubic-bezier
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (0
 .4
 ,
@@ -164,30 +636,96 @@ to {
 	animation-name: fadeInUp;
 	-webkit-animation-name: fadeInUp;
 }
-</style>
-<nav class="main-navigation">
-	
-		<a class="navbar-brand" href="#"><img src="https://lh3.googleusercontent.com/-VI5boeB83T4/XGbi1HG5lQI/AAAAAAAABWQ/SsSOaRHo4C8S7_GDJUhg31Fkj9yk3NnqACL0BGAYYCw/h200/logo.png" alt=" "
-			width="100px"></a>
-	
-	<ul class="nav-list">
-		<li class="nav-list-item"><a href="#" class="nav-link">Home</a></li>
-		<li class="nav-list-item"><a href="register" class="nav-link">Register</a>
-		</li>
-		<li class="nav-list-item"><a href="login" class="nav-link">Login</a>
-		</li>
-		<li class="nav-list-item"><a href="category" class="nav-link">Category</a>
-		</li>
-		<li class="nav-list-item"><a href="product" class="nav-link">Product</a>
-		</li>
-		<li class="nav-list-item"><a href="allproductpage" class="nav-link">All Product</a>
-		</li>
-		<li class="nav-list-item"><a href="supplier" class="nav-link">Supplier</a>
-		</li>
-		<li class="nav-list-item"><a href="viewoneproduct" class="nav-link">View One Product</a>
-		</li>
-		
-		
-	</ul>
 
-</nav>
+#cart {
+	color: #3A1C12;
+	text-decoration: none;
+	font-size: 28px;
+	font-style: bold;
+	font-family: sans-serif;
+	font-weight: 500;
+}
+</style>
+<div>
+	<c:choose>
+		<c:when test="${sessionScope.userlogin}">
+			<nav class="main-navigation">
+				<a class="navbar-brand" href="#"><img
+					src="${cr}/resources/images/logo.png" alt=" " width="100px"></a>
+				<ul class="nav-list">
+					<li class="nav-list-item"><a href="${cr}/home"
+						class="nav-link">Home</a></li>
+					<li class="nav-list-item"><a href="${cr}/allproductpage"
+						class="nav-link">All Product</a></li>
+						<li class="nav-list-item"><a href="${cr}/login"
+						class="nav-link">Login</a></li>
+						
+					<li class="nav-list-item"><a href="" class="nav-link">
+							Welcome!${loginname}</a></li>
+					<li class="nav-list-item"><a href="${cr}/user/viewcart"
+						id="cart"><i class="fa fa-shopping-cart"></i> Cart <span
+							class="badge">${sessionScope.itemcount}</span></a></li>
+
+					<li class="nav-list-item"><a href="${cr}/logout"
+						class="nav-link"> Logout</a></li>
+				</ul>
+			</nav>
+		</c:when>
+		<c:when test="${sessionScope.Adminlogin}">
+			<nav class="main-navigation">
+				<a class="navbar-brand" href="#"><img
+					src="${cr}/resources/images/logo.png" alt=" " width="100px"></a>
+				<ul class="nav-list">
+
+					<li class="nav-list-item"><a href="${cr}/home"
+						class="nav-link">Home</a></li>
+					<li class="nav-list-item"><a href="${cr}/admin/category"
+						class="nav-link">Category</a></li>
+						<li class="nav-list-item"><a href="${cr}/login"
+						class="nav-link">Login</a></li>
+					<li class="nav-list-item"><a href="" class="nav-link">
+					Welcome!{loginname}</a></li>
+							<li class="nav-list-item"><a href="${cr}/logout"
+						class="nav-link"> Logout</a></li>
+
+				</ul>
+			</nav>
+		</c:when>
+		<c:when test="${sessionScope.supplierlogin}">
+			<nav class="main-navigation">
+				<a class="navbar-brand" href="#"><img
+					src="${cr}/resources/images/logo.png" alt=" " width="100px"></a>
+				<ul class="nav-list">
+					<li class="nav-list-item"><a href="${cr}/supplier/product"
+						class="nav-link"> Product</a></li>
+						<li class="nav-list-item"><a href="${cr}/login"
+						class="nav-link">Login</a></li>
+					<li class="nav-list-item"><a href="" class="nav-link">Welcome!
+							${loginname}</a></li>
+							<li class="nav-list-item"><a href="${cr}/logout"
+						class="nav-link"> Logout</a></li>
+				</ul>
+			</nav>
+		</c:when>
+		<c:otherwise>
+			<nav class="main-navigation">
+				<a class="navbar-brand" href="#"><img
+					src="${cr}/resources/images/logo.png" alt="" width="100px"></a>
+				<ul class="nav-list">
+					<li class="nav-list-item"><a href="${cr}/home"
+						class="nav-link">Home</a></li>
+					<li class="nav-list-item"><a href="${cr}/register"
+						class="nav-link">Register</a></li>
+					<li class="nav-list-item"><a href="${cr}/login"
+						class="nav-link">Login</a></li>
+					<li class="nav-list-item"><a href="${cr}/rsupplier"
+						class="nav-link">Supplier Register</a></li>
+					<li class="nav-list-item"><a href="${cr}/allproductpage"
+						class="nav-link">All Product</a></li>
+						
+				</ul>
+
+			</nav>
+		</c:otherwise>
+	</c:choose>
+</div>

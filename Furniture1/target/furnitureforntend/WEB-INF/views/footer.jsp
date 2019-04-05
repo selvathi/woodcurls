@@ -1,6 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="cr" value="${pageContext.request.contextPath}"/>
 <style>
 .bg-primary {
- background-image: url("http://bgfons.com/upload/wood_texture3811.jpg");
+background-image: url("https://bgfons.com/upload/wood_texture3811.jpg");
 }
 
 .bg-circle
@@ -63,7 +66,7 @@
         <div class="col-md-4">
           <div class="row py-2">
             <div class="col-sm-3 hidden-md-down">
-              <a class="bg-circle bg-info" href="contactus">
+              <a class="bg-circle bg-info" href="${cr}/contactus">
                 <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
               </a>
             </div>
@@ -76,7 +79,7 @@
         <div class="col-md-4">
           <div class="row py-2">
             <div class="col-sm-3 hidden-md-down">
-              <a class="bg-circle bg-info" href="aboutus">
+              <a class="bg-circle bg-info" href="${cr}/aboutus">
                 <i class="fa fa-2x fa-fw fa-info" aria-hidden="true "></i>
               </a>
             </div>

@@ -159,51 +159,7 @@ body {
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
 						</form:form>
-						<div class="container">
-							<div class="row">
-								<div class="table-responsive table-bordered movie-table">
-									<table class="table movie-table">
-										<thead>
-											<tr class="movie-table-head">
-												<th>Supplier Id</th>
-												<th>Supplier Name</th>
-												<th>Supplier Emailid</th>
-												<th>Phoneno</th>
-												<th>Location</th>
-												<th>Edit/Delete</th>
 
-											</tr>
-
-										</thead>
-										<tbody>
-
-											<c:forEach items="${Supplier_list}" var="s">
-												<tr class="dark-row">
-													<td>${s.supplier_id}</td>
-													<td>${s.supplier_name}</td>
-													<td>${s.supplier_emailid}</td>
-													<td>${s.phoneno}</td>
-													<td>${s.location}</td>
-
-
-
-													<td class="text-center"><a class='btn btn-info btn-xs'
-														href="editsupplier?supplier_id=${s.supplier_id}"> <span
-															class="glyphicon glyphicon-edit"></span> Edit
-													</a> <a href="deletesupplier?supplier_id=${s.supplier_id}"
-														class="btn btn-danger btn-xs"> <span
-															class="glyphicon glyphicon-remove"></span> Delete
-													</a></td>
-												</tr>
-											</c:forEach>
-
-
-
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
 
 
 					</div>

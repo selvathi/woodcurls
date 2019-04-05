@@ -2,7 +2,7 @@ package com.niit.furniturebackend.DAOImpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import com.niit.furniturebackend.model.Supplier;
 import com.niit.furniturebackend.model.UserCred;
 
 
-@Repository
+@Repository("SupplierDAO")
 @Transactional
 public class SupplierDAOImpl implements SupplierDAO {
 
@@ -26,7 +26,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 			usercred.setEmailid(supplier.getSupplier_emailid());
 			usercred.setUser_Password(supplier.getPassword());
 			usercred.setStatus("true");
-			usercred.setRole("Role_admin");
+			usercred.setRole("ROLE_ADMIN");
 			sessionFactory.getCurrentSession().save(usercred);
 			sessionFactory.getCurrentSession().save(supplier);
 			return true;
@@ -85,10 +85,10 @@ public class SupplierDAOImpl implements SupplierDAO {
 	}
 
 	@Override
-	public Supplier selectOneSupplier(int supplier_id)
+	public Supplier selectOneSupplier(String email_id)
 	{
 		try {
-			return (Supplier)sessionFactory.getCurrentSession().createQuery("from Supplier where supplier_id="+supplier_id).uniqueResult();
+			return (Supplier)sessionFactory.getCurrentSession().createQuery("from Supplier where supplier_emailid='"+email_id+"'").uniqueResult();
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());

@@ -20,6 +20,7 @@ import com.niit.furniturebackend.DAO.ProductDAO;
 import com.niit.furniturebackend.model.Product;
 
 @Controller
+@RequestMapping("/supplier")
 public class ProductController {
 
 	@Autowired
@@ -188,8 +189,10 @@ String deletepage(@RequestParam("product_id")int product_id,Model model )
 			model.addAttribute("error3", false);
 		}
 
-		else {
-			try {
+		else 
+		{
+			try 
+			{
 				if (productdao.updateProduct(product))
 				{
 					addimage(product.getPimage(), product.getProduct_id());
@@ -229,25 +232,9 @@ String deletepage(@RequestParam("product_id")int product_id,Model model )
 			}
 		}
 		return "index";
-
-	}
-	@RequestMapping( "/allproductpage")
-	public String allproducts(Model m) {
-		m.addAttribute("allproductpage", true);
-		m.addAttribute("Product_list", productdao.selectAllProduct());
-		m.addAttribute("Category_list", cat. selectAllCategory());
-		return "index";
 	}
 	
-	@RequestMapping( "/viewoneproduct")
-	public String oneproductpage(Model m, @RequestParam("product_id") int product_id) {
-		m.addAttribute("viewoneproduct", true);
-		m.addAttribute("title", "GiftGalore-Products");
-		m.addAttribute("Product_list", productdao.selectOneProduct(product_id));
-		return "index";
-
-	}
-
+	
 }
 
 

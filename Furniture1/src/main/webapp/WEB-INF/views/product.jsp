@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
+
 <style>
 .dark-row {
 	background: #AEC5E8;
@@ -79,20 +81,22 @@ body {
 								<strong>Warning!</strong>Please contact the administrator
 							</div>
 						</c:if>
-						
+
 						<c:if test="${edit}">
-							<c:set var="url" value="updateproduct"></c:set>
+							<c:set var="url" value="${cr}/supplier/updateproduct"></c:set>
 						</c:if>
 						<c:if test="${!edit}">
-							<c:set var="url" value="createproduct"></c:set>
+							<c:set var="url" value="${cr}/supplier/createproduct"></c:set>
 						</c:if>
 
 						<h1 class="h3 mb-3 font-weight-normal">Product Form</h1>
 					</div>
 					<div class="card-body">
+					
 						<form:form name="my-form" modelAttribute="myproduct" method="Post"
 							action="${url}" enctype="multipart/form-data">
 
+						<form:hidden path="supplier.supplier_id" value="${sessionScope.supplierid}"/>
 							<c:if test="${edit}">
 								<div class="form-group row">
 									<label for="full_name"
@@ -157,15 +161,15 @@ body {
 								</div>
 							</div>
 
-								<div class="form-group row">
+							<div class="form-group row">
 								<label for="full_name"
 									class="col-md-4 col-form-label text-md-right">Image</label>
 								<div class="col-md-6">
-							<form:input type="file" name="fileToUpload" id="fileToUpload"
-								path="pimage" class="form-control" />
+									<form:input type="file" name="fileToUpload" id="fileToUpload"
+										path="pimage" class="form-control" />
+								</div>
 							</div>
-							</div>
-                           
+
 							<div class="col-md-6 offset-md-4">
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
@@ -179,11 +183,13 @@ body {
 											<tr class="movie-table-head">
 												<th>ProductId</th>
 												<th>Product Name</th>
-												<th>Product Description</th>
+
 												<th>Product Category</th>
+												<th>Supplier</th>
 												<th>Product Quantity</th>
 												<th>Product Price</th>
 												<th>Product Image</th>
+
 												<th>Edit/Delete</th>
 
 											</tr>
@@ -194,25 +200,32 @@ body {
 
 											<!--row-->
 											<c:forEach items="${Product_list}" var="p">
-												<tr class="dark-row">
-													<td>${p.product_id}</td>
-													<td>${p.product_name}</td>
-													<td>${p.product_desc}</td>
-													<td>${p.category.category_id}</td>
-													<td>${p.product_quantity}</td>
-													<td>${p.product_price}</td>
-													<td><img src="resources/pimages/${p.product_id}.jpg"
-														width="50px" height="50px" /></td>
+												<c:if
+													test="${sessionScope.supplierid==p.supplier.supplier_id}">
+													<tr class="dark-row">
+														<td>${p.product_id}</td>
+														<td>${p.product_name}</td>
+
+														<td>${p.category.category_name}</td>
+														<td>${p.supplier.supplier_name}</td>
+														<td>${p.product_quantity}</td>
+														<td>${p.product_price}</td>
+														<td><img
+															src="${cr}/resources/pimages/${p.product_id}.jpg"
+															width="50px" height="50px" /></td>
 
 
-													<td class="text-center"><a class='btn btn-info btn-xs'
-														href="editproduct?product_id=${p.product_id}"> <span
-															class="glyphicon glyphicon-edit"></span> Edit
-													</a> <a href="deleteproduct?product_id=${p.product_id}"
-														class="btn btn-danger btn-xs"> <span
-															class="glyphicon glyphicon-remove"></span> Delete
-													</a></td>
-												</tr>
+														<td class="text-center"><a
+															class='btn btn-info btn-xs'
+															href="${cr}/supplier/editproduct?product_id=${p.product_id}">
+																<span class="class="fa fa-edit"></span>
+														</a> <a
+															href="${cr}/supplier/deleteproduct?product_id=${p.product_id}"
+															class="btn btn-danger btn-xs"> <span
+																class="class="fa fa-trash-o"></span>
+														</a></td>
+													</tr>
+												</c:if>
 											</c:forEach>
 											<!--/.row-->
 

@@ -2,7 +2,7 @@ package com.niit.furniturebackend.DAOImpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.niit.furniturebackend.DAO.ProductDAO;
 import com.niit.furniturebackend.model.Product;
 
-@Repository
+@Repository("ProductDAO")
 @Transactional
 public class ProductDAOImpl implements ProductDAO {
 
